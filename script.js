@@ -7,6 +7,8 @@ images.sort(() => 0.5 - Math.random());
 let imgActiv = [];
 let imgActivId = [];
 
+let imgMatched = 0;
+
 let mygame = document.querySelector(".mygame");
 
 
@@ -33,7 +35,15 @@ function compareImg(){
     if(imgActiv[0]!==imgActiv[1]){
        allImages[firstId].setAttribute("src", "img/blank.png");
        allImages[secondId].setAttribute("src", "img/blank.png");
+    } else {
+        imgMatched ++;
+        if(imgMatched===8) {
+            resetGame();
+            
+        }
+        console.log(imgMatched);
     }
+    
     imgActiv = []; //removes images from array
     imgActivId = [];
 }
@@ -47,9 +57,16 @@ function flipImg(){
 
     this.setAttribute("src", images[imgId]);
     if(imgActiv.length===2){
-        setTimeout(compareImg, 500); //executes compare function after 5 sec
+        setTimeout(compareImg, 300); //executes compare function after 5 sec
     //compareImg();
     }  
 }
 
+function resetGame(){
+    mygame.innerHTML = "";
+    createBoard();
+    imgActiv = [];
+    imgActivId = [];
+    imgMatched = 0;
+}
 createBoard();
