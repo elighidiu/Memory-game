@@ -1,0 +1,19 @@
+.mygame {
+    display:flex;
+    flex-wrap:wrap;
+    height: 400px;
+    width: 400px;
+    margin:100 auto;
+  
+}
+
+.content {
+    margin: 0 auto;
+    width: 800;
+    display: flex;
+    justify-content: center;
+}
+
+body {
+    background-color: azure;
+}
